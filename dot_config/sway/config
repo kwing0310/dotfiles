@@ -1,0 +1,82 @@
+# ===============
+#    Variables
+# ===============
+
+# Mod4 = cmd
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term kitty
+set $menu wofi --show run
+
+set $bg #161821
+set $fg #c6c8d1
+set $border #353a50
+
+# ==========================
+#    Output Configuration
+# ==========================
+
+# Wallpaper
+output * bg ib-wallpaper.jpg fill
+
+# Display
+output eDP-1 resolution 2880x1800 position 2880,0
+
+# ================
+#    Appearance
+# ================
+
+gaps outer 3
+gaps inner 12
+default_border pixel 3
+
+# Class                 border  bground text indicator child_border
+client.focused          $border $bg     $fg  $bg       $border
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+
+exec python3 ~/.config/sway/inactive-windows-transparency.py
+
+# ========================
+#    Idle configuration
+# ========================
+
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+# ===============================
+
+# Keyboard layout
+input type:keyboard {
+  xkb_layout jp
+}
+
+# Start apps
+exec mako
+exec nm-applet --indicator
+exec blueman-applet
+exec fcitx5 -d
+
+# Load key bindings
+include keybind.conf
+
+# Status bar
+bar {
+  swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
