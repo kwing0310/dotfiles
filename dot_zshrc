@@ -60,6 +60,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 # =============
@@ -89,7 +90,7 @@ alias cc='ch cd'
 
 alias s='ssh'
 alias v='nvim'
-alias vv='v -c NERDTree -c Tagbar'
+alias vv='v -c NERDTree'
 alias w='cd $HOME/src/github.com/$GITHUB_USER'
 
 alias y='yarn'
