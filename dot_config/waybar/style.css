@@ -1,0 +1,49 @@
+* {
+  color: #d2d4de;
+  font-size: 11.3px;
+  font-family: "Firge35Nerd", monospace;
+}
+
+window#waybar {
+  background: rgba(22, 24, 33, 0.8);
+}
+
+#custom-archmenu {
+  margin-left: 20px;
+}
+
+#clock {
+  margin: 0 22px;
+}
+
+#custom-music {
+  border-radius: 16px;
+  margin: 3px 0;
+  padding: 0 8px;
+  border: 2px solid #353a50;
+}
+
+#workspaces button {
+  margin: 0;
+  padding: 0 7px;
+  border: none;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  border: inherit;
+  color: inherit;
+}
+
+#battery {
+  margin-right: 11px;
+}
+
+#tray {
+  border-radius: 16px;
+  margin: 3px 20px 3px 3px;
+  padding: 2px 8px;
+  background: #353a50;
+}
