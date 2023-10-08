@@ -22,6 +22,7 @@ export GOPATH=$HOME
 export QT_QPA_PLATFORM=wayland
 export GDK_DPI_SCALE=1
 export QT_SCALE_FACTOR=1
+export ELECTRON_FLAGS='--enable-features=UseOzonePlatform --ozone-platform=wayland'
 
 # Iceberg Dark
 # https://github.com/sheepla/dotfiles
@@ -90,7 +91,7 @@ alias cc='ch cd'
 
 alias s='ssh'
 alias v='nvim'
-alias vv='v -c NERDTree'
+alias vv='v -c NERDTree -c Minimap'
 alias w='cd $HOME/src/github.com/$GITHUB_USER'
 
 alias y='yarn'
@@ -98,6 +99,9 @@ alias yr='y run'
 alias yd='yr dev'
 
 alias fzwiki='fzwiki -l ja -o'
+
+alias spotify="spotify $ELECTRON_FLAGS"
+alias webcord="webcord $ELECTRON_FLAGS"
 
 # Why don't you use Vi instead of Emacs?
 alias emacs='vi'

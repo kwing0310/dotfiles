@@ -1,0 +1,78 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["custom/archmenu", "clock", "custom/music"],
+  "modules-center": ["sway/workspaces"],
+  "modules-right": ["cpu", "memory", "battery", "tray"],
+  
+  "sway/window": {
+    "max-length": 50
+  },
+
+  "custom/archmenu": {
+    "format": "{icon}",
+    "format-icons": " ",
+    "on-click": "$HOME/scripts/wofi-power-menu.sh"
+  },
+
+  "clock": {
+    "interval": 1,
+    "format-alt": "{:%Y-%m-%d}",
+    "format": "{:%H:%M:%OS}"
+  },
+
+  "custom/music": {
+    "format": "{}",
+    "return-type": "json",
+    "signal": 15,
+    "max-length": 40,
+    "escape": true,
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+  },
+
+  "sway/workspaces": {
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+    },
+    "all-outputs": true,
+    "active-only": false,
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "focused": "",
+      "urgent": ""
+    }
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": "CPU {}% / ",
+    "max-length": 15
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "MEM {}% / ",
+    "max-length": 15
+  },
+
+  "battery": {
+    "interval": 30,
+    "format": "BAT {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "tray": {
+    "icon-size": 12,
+    "spacing": 6
+  }
+}

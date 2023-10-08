@@ -12,34 +12,36 @@ set $up k
 set $right l
 
 set $term kitty
+set $browser firefox-developer-edition
 set $menu wofi --show run
 
 set $bg #161821
 set $fg #c6c8d1
-set $border #353a50
+set $border1 #353a50
+set $border2 #6b7089
 
 # ==========================
 #    Output Configuration
 # ==========================
 
 # Wallpaper
-output * bg ib-wallpaper.jpg fill
+output * bg archchan.jpg fill
 
 # Display
-output eDP-1 resolution 2880x1800 position 2880,0
+output eDP-1 resolution 2880x1800 position 2880,0 scale 2.0
 
 # ================
 #    Appearance
 # ================
 
 gaps outer 3
-gaps inner 12
+gaps inner 8
 default_border pixel 3
 
-# Class                 border  bground text indicator child_border
-client.focused          $border $bg     $fg  $bg       $border
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
+# Class                 border   bground text indicator child_border
+client.focused          $border1 $bg     $fg  $border2  $border1
+client.focused_inactive $bg      $bg     $fg  $border1  $bg
+client.unfocused        $bg      $bg     $fg  $border1  $bg
 
 exec python3 ~/.config/sway/inactive-windows-transparency.py
 
@@ -47,16 +49,10 @@ exec python3 ~/.config/sway/inactive-windows-transparency.py
 #    Idle configuration
 # ========================
 
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w \
+       timeout 300 'swaylock -f' \
+       timeout 900 'swaymsg "output * power off"' \
+       resume 'swaymsg "output * power on"'
 
 # ===============================
 
@@ -70,6 +66,9 @@ exec mako
 exec nm-applet --indicator
 exec blueman-applet
 exec fcitx5 -d
+
+# Activate screen sharing
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Load key bindings
 include keybind.conf
